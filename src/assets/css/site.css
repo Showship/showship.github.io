@@ -1135,6 +1135,66 @@ th code {
   font-size: 0.9375rem;
 }
 
+.foot-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.foot-btn[hidden] {
+  display: none;
+}
+
+/* Cookie consent: a plain ruled bar on the paper, Accept and Decline weighted the same. */
+.consent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 16px var(--gutter);
+  background: var(--bg);
+  color: var(--body);
+  border-top: 2px solid var(--ink);
+}
+.consent[hidden] {
+  display: none;
+}
+.consent p {
+  margin: 0;
+  flex: 1 1 28em;
+  font-size: 0.9375rem;
+}
+.consent-actions {
+  display: flex;
+  gap: 12px;
+}
+.consent .btn {
+  min-height: 44px;
+  padding: 0 20px;
+}
+@media (max-width: 480px) {
+  .consent-actions {
+    width: 100%;
+  }
+  .consent .btn {
+    flex: 1;
+  }
+}
+
 /* ---------- Documentation ---------- */
 .docs {
   display: grid;

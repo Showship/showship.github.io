@@ -216,7 +216,7 @@ function head({ title, description, root, canonicalPath, noindex, ld }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-<meta name="robots" content="${robots}">${cfg.googleSiteVerification ? `\n<meta name="google-site-verification" content="${esc(cfg.googleSiteVerification)}">` : ""}
+<meta name="robots" content="${robots}">
 <meta name="theme-color" content="#F7F4EE" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#100E2C" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="${root}assets/img/showship-mark.svg" type="image/svg+xml">
@@ -259,7 +259,7 @@ function footer(root) {
   return `<footer class="site-footer">
 <div class="wrap foot">
 <p class="foot-brand"><img src="${root}assets/img/showship-mark.svg" alt="" width="28" height="28"><span><strong>Showship</strong> shows what you shipped. MIT licensed, by Soe Moe Oo.</span></p>
-<nav aria-label="Footer"><a href="${root}docs/">Documentation</a><a href="${root}docs/install/">Install</a><a href="${root}docs/quick-start/">Quick start</a><a href="${root}designs/">Designs</a><a href="${root}docs/task-trackers/">Task trackers</a><a href="${cfg.repo}" rel="noopener">GitHub</a><a href="${cfg.npm}" rel="noopener">npm</a><a href="${cfg.issues}" rel="noopener">Report an issue</a></nav>
+<nav aria-label="Footer"><a href="${root}docs/">Documentation</a><a href="${root}docs/install/">Install</a><a href="${root}docs/quick-start/">Quick start</a><a href="${root}designs/">Designs</a><a href="${root}docs/task-trackers/">Task trackers</a><a href="${root}docs/privacy/">Privacy</a><a href="${cfg.repo}" rel="noopener">GitHub</a><a href="${cfg.npm}" rel="noopener">npm</a><a href="${cfg.issues}" rel="noopener">Report an issue</a>${hasGa4() ? '<button type="button" class="foot-btn" data-consent-open hidden>Cookie settings</button>' : ""}</nav>
 </div>
 </footer>`;
 }
@@ -274,6 +274,27 @@ const SEARCH_DIALOG = `<dialog id="search-dialog" aria-label="Search the documen
 <ul id="search-results" class="search-results"></ul>
 </dialog>`;
 
+// Page counts, production builds only. GoatCounter uses no cookies and no personal data.
+// GA4 loads only when `ga4` (a G-XXXXXXXXXX id) is set. Consent defaults to denied (no cookies, cookieless pings)
+// and only the cookie banner can grant analytics storage; site.js handles the banner and remembers the choice.
+const hasGa4 = () => !!process.env.SITE_URL && /^G-[A-Z0-9]+$/.test(cfg.ga4 || "");
+
+const CONSENT_BANNER = () => hasGa4() ? `<div id="consent" class="consent" role="region" aria-label="Cookie consent" hidden>
+<p>We use Google Analytics cookies to count visits. They are off unless you accept. <a href="__ROOT__docs/privacy/#this-website">Privacy notes</a></p>
+<div class="consent-actions"><button type="button" class="btn btn-line" data-consent="denied">Decline</button><button type="button" class="btn btn-line" data-consent="granted">Accept</button></div>
+</div>` : "";
+
+function analytics() {
+  if (!process.env.SITE_URL) return "";
+  let out = "";
+  if (cfg.goatcounter) out += `<script data-goatcounter="https://${cfg.goatcounter}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>\n`;
+  if (hasGa4()) {
+    out += `<script async src="https://www.googletagmanager.com/gtag/js?id=${cfg.ga4}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});try{if(localStorage.getItem("ss-consent")==="granted")gtag("consent","update",{analytics_storage:"granted"})}catch(e){}gtag("js",new Date());gtag("config","${cfg.ga4}",{allow_google_signals:false,allow_ad_personalization_signals:false});</script>`;
+  }
+  return out.trim();
+}
+
 function shell({ title, description, root, current, body, canonicalPath, noindex, bodyClass, ld }) {
   return `<!doctype html>
 <html lang="en" data-root="${root}">
@@ -284,6 +305,8 @@ ${header(root, current)}
 ${body}
 ${footer(root)}
 ${SEARCH_DIALOG}
+${CONSENT_BANNER().replace('__ROOT__', root)}
+${analytics()}
 </body>
 </html>
 `;

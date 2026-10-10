@@ -22,6 +22,14 @@ The only network call that is not your own GitHub or tracker access is the updat
 
 Turn it off with `"updateCheck": false` in `config.json`.
 
+## This website
+
+The Showship website counts page views with two tools. GoatCounter uses no cookies and stores no personal data.
+
+Google Analytics 4 is off until you accept it in the cookie banner. Before that, and if you decline, it sets no cookies and stores nothing in your browser. If you accept, it sets analytics cookies to count visits. If you accept, that choice is saved in your browser. If you decline, it is remembered only until you close the tab, so the banner returns on your next visit. "Cookie settings" in the footer lets you change your choice at any time.
+
+Neither tool receives anything from your repos, reports or config, because those never leave your machine. The Showship tool itself has no analytics at all.
+
 ## Your AI agent
 
 Your AI agent processes the collected text as part of your session, like any other file you open with it. Check your agent's own data policy for how it handles session content.

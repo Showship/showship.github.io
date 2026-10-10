@@ -94,7 +94,7 @@ What only you can do:
 
 1. **Sitelinks are chosen by Google.** They cannot be declared or forced. They usually appear once the site is indexed and has enough traffic and clear structure, which takes weeks. The work above only makes the site eligible.
 2. **Use a stable address.** A project site at `<user>.github.io/<repo>/` works, but Google handles a site at the root of a domain best. Prefer a custom domain (see above) or a repo named `<user>.github.io`, and keep it permanent, because a change restarts indexing.
-3. **Register the site in [Google Search Console](https://search.google.com/search-console).** Add the property and verify it with either method: the HTML file (put the downloaded `google….html` file in `src/static/`, which is copied to the site root as is), or the HTML tag (paste only the token from the tag's `content=` into `googleSiteVerification` in `site.config.json`). Then submit `<site>/sitemap.xml`. Use URL inspection on the home page to request indexing.
+3. **Register the site in [Google Search Console](https://search.google.com/search-console).** Add the property and verify it with the HTML file method: put the downloaded `google….html` file in `src/static/`, which is copied to the site root as is. Then submit `<site>/sitemap.xml`. Use URL inspection on the home page to request indexing.
 4. **Check the structured data** with the [Rich Results Test](https://search.google.com/test/rich-results) and keep the page titles and descriptions in `src/docs/*.md` front matter specific.
 5. **Earn links.** Link to the site from the Showship README, the npm page and the GitHub repo description. That helps more than any tag.
 

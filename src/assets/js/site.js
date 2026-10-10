@@ -328,4 +328,33 @@
     else links[i - 1].focus();
   });
   dialog.addEventListener("close", function () { input.value = ""; list.textContent = ""; setStatus("Type to search the documentation."); openBtn.focus(); });
+
+  /* ----- Cookie consent (rendered only when GA4 is configured). The page default is "denied"; Accept grants analytics storage.
+     Accept is remembered across visits (localStorage). Decline is remembered for this visit only (sessionStorage),
+     so anyone who has not accepted sees the banner again next time. ----- */
+  var consent = document.getElementById("consent");
+  var consentOpen = document.querySelector("[data-consent-open]");
+  if (consent) {
+    var KEY = "ss-consent";
+    function read(store) { try { return window[store].getItem(KEY); } catch (e) { return null; } }
+    function write(store, v) { try { window[store].setItem(KEY, v); } catch (e) {} }
+    function clear(store) { try { window[store].removeItem(KEY); } catch (e) {} }
+    function showConsent(show) { consent.hidden = !show; if (show) consent.querySelector("button").focus(); }
+    consent.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-consent]");
+      if (!b) return;
+      var v = b.getAttribute("data-consent");
+      if (v === "granted") { write("localStorage", "granted"); clear("sessionStorage"); }
+      else { clear("localStorage"); write("sessionStorage", "denied"); }
+      if (typeof window.gtag === "function") window.gtag("consent", "update", { analytics_storage: v });
+      showConsent(false);
+      if (consentOpen) consentOpen.focus();
+    });
+    consent.addEventListener("keydown", function (e) { if (e.key === "Escape") { showConsent(false); if (consentOpen) consentOpen.focus(); } });
+    if (consentOpen) {
+      consentOpen.hidden = false;
+      consentOpen.addEventListener("click", function () { showConsent(true); });
+    }
+    if (read("localStorage") !== "granted" && read("sessionStorage") !== "denied") consent.hidden = false;
+  }
 })();
