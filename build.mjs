@@ -7,6 +7,7 @@
  * src/pages/*.html   page fragments (front matter + HTML), rendered inside the site layout
  * src/docs/*.md      documentation pages (front matter + Markdown), rendered with sidebar and TOC
  * src/assets/**      copied as is to dist/assets
+ * src/static/**      copied as is to the site root (for example a Google Search Console verification file)
  *
  * Every internal link is relative to the page that contains it, so the output works at any
  * GitHub Pages base path (user site, project site, custom domain) and from a local server.
@@ -306,6 +307,8 @@ const write = (rel, text) => {
 
 fs.rmSync(DIST, { recursive: true, force: true });
 copyDir(path.join(SRC, "assets"), path.join(DIST, "assets"));
+// src/static/ is copied to the site root as is: verification files, favicon.ico, and so on.
+if (fs.existsSync(path.join(SRC, "static"))) copyDir(path.join(SRC, "static"), DIST);
 write(".nojekyll", "");
 if (cfg.cname) write("CNAME", cfg.cname + "\n");
 

@@ -18,7 +18,9 @@ if (!fs.existsSync(DIST)) { console.error("dist/ not found. Run `node build.mjs`
 
 const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
 const files = walk(DIST);
-const pages = files.filter((f) => f.endsWith(".html"));
+// Verification files from search engines are plain text with an .html name, not pages.
+const isVerification = (f) => /^(google[0-9a-f]+\.html|BingSiteAuth\.xml)$/.test(path.basename(f)) && path.dirname(f) === DIST;
+const pages = files.filter((f) => f.endsWith(".html") && !isVerification(f));
 const problems = [];
 const idCache = new Map();
 const idsOf = (file) => {

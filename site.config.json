@@ -10,41 +10,23 @@
   "docs": [
     {
       "group": "Start",
-      "pages": [
-        "",
-        "install",
-        "quick-start",
-        "examples"
-      ]
+      "pages": ["", "install", "quick-start", "examples"]
     },
     {
       "group": "Configure",
-      "pages": [
-        "configuration",
-        "task-trackers"
-      ]
+      "pages": ["configuration", "task-trackers"]
     },
     {
       "group": "Decks",
-      "pages": [
-        "deck-styles",
-        "slide-templates",
-        "build-and-check"
-      ]
+      "pages": ["deck-styles", "slide-templates", "build-and-check"]
     },
     {
       "group": "Guides",
-      "pages": [
-        "code-reviews",
-        "privacy",
-        "troubleshooting"
-      ]
+      "pages": ["code-reviews", "privacy", "troubleshooting"]
     },
     {
       "group": "Project",
-      "pages": [
-        "contributing"
-      ]
+      "pages": ["contributing"]
     }
   ],
   "author": {
