@@ -1,0 +1,15 @@
+{
+  "name": "showship-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static website and documentation for Showship, deployed to GitHub Pages.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "check": "node build.mjs && node scripts/check-site.mjs",
+    "sync:assets": "node scripts/sync-assets.mjs"
+  },
+  "license": "MIT"
+}

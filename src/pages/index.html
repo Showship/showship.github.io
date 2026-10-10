@@ -1,0 +1,214 @@
+---
+title: Showship: show what you shipped, progress decks from GitHub
+description: Showship turns git commits, pull requests, code reviews and tasks into a plain-language progress deck for your manager, client or CTO.
+---
+<main id="main">
+
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<h1 class="display">Show what you shipped.</h1>
+<p class="lede">Showship reads your commits, pull requests, code reviews and tasks, then builds the progress deck your manager, client or CTO can follow. Weekly, per sprint, monthly or for any date range.</p>
+<div class="hero-actions">
+<div class="cmd"><code>npx showship</code><button type="button" class="copy" hidden>Copy</button></div>
+<a class="btn btn-line" href="{{docs}}">Read the documentation</a>
+</div>
+<p class="hero-note">An agent skill for Claude Code, plus Codex and Antigravity (experimental). Needs Node.js 18 or newer, git and the GitHub CLI. Beta release. <a href="{{root}}assets/downloads/example-deck-showship.pptx">Download the example deck</a> ({{size:assets/downloads/example-deck-showship.pptx}}).</p>
+</div>
+<figure class="shots">
+<div class="shots-stack">
+<div class="shot"><img fetchpriority="high" src="{{root}}assets/img/slide-dashboard.webp" width="961" height="540" alt="Executive summary slide with three project cards showing 100%, 65% and 1 of 2 progress, and a key update strip below."></div>
+<div class="shot shot-b"><img src="{{root}}assets/img/slide-attention.webp" width="961" height="540" alt="Slide titled Blockers and Decisions Needed, with a blockers column and a decisions column."></div>
+</div>
+</figure>
+</div>
+<div class="trail-band" aria-hidden="true"><svg viewBox="0 0 400 122" preserveAspectRatio="none" focusable="false"><use href="#trail-paths"/></svg></div>
+</section>
+
+<section class="band-ink section-demo" id="demo">
+<div class="wrap demo-grid">
+<div class="demo-copy">
+<p class="kicker">Demo, 30 seconds</p>
+<h2 class="title">Watch a week of work become a deck.</h2>
+<p>The walkthrough starts with the raw material, then shows what Showship reads and what it builds from it.</p>
+<ol class="beats">
+<li>Every week, someone has to explain all of this.</li>
+<li>It reads your week: git commits, pull requests and reviews, and your task tracker.</li>
+<li>It builds the deck: an editable PowerPoint with progress, owners, blockers and next steps.</li>
+</ol>
+</div>
+<figure class="demo-video">
+<div class="video"><video controls preload="none" playsinline poster="{{root}}assets/video/showship-demo-poster.webp" width="1920" height="1080" aria-label="Showship demo video, 30 seconds. A description is in the list beside it."><source src="{{root}}assets/video/showship-demo.mp4" type="video/mp4"><p>Your browser cannot play this video. <a href="{{root}}assets/video/showship-demo.mp4">Download it as an MP4</a>.</p></video></div>
+</figure>
+</div>
+</section>
+
+<section class="section" id="questions">
+<div class="wrap split split-sticky">
+<div>
+<p class="kicker">What the deck covers</p>
+<h2 class="title">One deck answers the six questions every audience asks.</h2>
+<p class="lede" style="margin-top:20px">Business readers get plain language, with technical terms only in brackets when they add something. Engineers get the technical version. Either way, every item says what changed for users or for the business.</p>
+</div>
+<ol class="q-list">
+<li><h3>What are we working on?</h3><p>Projects and features, one card each on the executive summary.</p><p class="slide-key">Slide: <code>dashboard</code></p></li>
+<li><h3>What has been delivered?</h3><p>Done, released, approved and merged, in the words the business uses.</p><p class="slide-key">Slides: <code>dashboard</code>, <code>timeline</code>, <code>workstreams</code></p></li>
+<li><h3>How far along is it?</h3><p>Percent and phases for each track. A footnote says how the percentage was counted.</p><p class="slide-key">Slides: <code>rings</code>, <code>phase_bars</code></p></li>
+<li><h3>Who is doing what?</h3><p>Owners per track, and a task track per person from your task tracker.</p><p class="slide-key">Slide: <code>tracker</code></p></li>
+<li><h3>What is blocked, and what do you need from us?</h3><p>Blockers and risks, plus the decisions you need, each with an owner or its options.</p><p class="slide-key">Slide: <code>attention</code></p></li>
+<li><h3>What happens next?</h3><p>Next week, sprint or month: owner, focus and status.</p><p class="slide-key">Slide: <code>table</code></p></li>
+</ol>
+</div>
+</section>
+
+<section class="section band" id="how-it-works">
+<div class="wrap">
+<p class="kicker">How it works</p>
+<h2 class="title">Collect in each repo. Build once.</h2>
+<p class="lede" style="margin-top:20px">The set of repos changes from period to period, so the work is split in two. Run collect inside every repo that had work, then run build once from anywhere.</p>
+<ol class="flow">
+<li><h3>Collect</h3><p>Reads commits on all branches and every pull request with activity: descriptions, reviews and comments in order. Bots are filtered out.</p><p class="small muted">Writes a plain-language draft per repo.</p></li>
+<li><h3>Add context</h3><p>Pulls tasks from your tracker, and asks one question for what GitHub cannot tell it: a percentage, a blocker outside the code.</p><p class="small muted">Your answers go into notes.md.</p></li>
+<li><h3>Build</h3><p>Merges the drafts and notes into report.json, runs the plain-language check, and writes the .pptx.</p><p class="small muted">Edits are changes to the JSON, then a rebuild.</p></li>
+<li><h3>Check</h3><p>Renders every slide and flags text that crosses the margins or collides with other text.</p><p class="small muted">Needs LibreOffice. Without it, the agent says the deck was not rendered.</p></li>
+</ol>
+<div class="say">
+<div>
+<h3>You talk, the agent works.</h3>
+<p style="margin-top:12px">Ask in your own language. The deck is written in the language you configure. Showship never invents numbers, owners or dates: they come from your data or from you.</p>
+</div>
+<div class="code"><div class="code-bar"><span>text</span><button type="button" class="copy" hidden>Copy</button></div><pre tabindex="0"><code># run inside each repo that had work this week
+Collect this week's commits and PRs for the report
+
+# once, after the last repo
+Build the report</code></pre></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="slides">
+<div class="wrap">
+<p class="kicker">Slide layouts</p>
+<h2 class="title" style="max-width:16em">Twelve layouts, picked to fit your data.</h2>
+<p class="lede" style="margin:20px 0 48px">Consecutive slides never reuse a layout, charts appear where there are real numbers, and every layout renders in all six designs.</p>
+<div class="split split-sticky split-rev">
+<figure class="grid-shot">
+<div class="shot"><img src="{{root}}assets/img/showship-grid.webp" width="1998" height="1524" loading="lazy" alt="Contact sheet of an example deck in the Showship design: title slide, executive summary, timeline, progress charts, code review insights, blockers and decisions, developer task track, team activity, next week's plan and a closing slide."></div>
+<figcaption>A complete example deck in the Showship design. All names and data are fictional.</figcaption>
+</figure>
+<dl class="layouts">
+<div><dt><a href="{{docs}}slide-templates/#dashboard">dashboard</a></dt><dd>Executive summary: one card per project, plus a key update.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#timeline">timeline</a></dt><dd>Milestones, or a blocker that was resolved.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#rings">rings</a></dt><dd>Doughnut charts for overall progress, with status tiles.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#phase-bars">phase_bars</a></dt><dd>Phase-by-phase completion per track, with owners.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#workstreams">workstreams</a></dt><dd>A finished item beside a process flow.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#rows">rows</a></dt><dd>Icon rows with a generated illustration or a screenshot.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#gallery">gallery</a></dt><dd>A strip of UI screenshots with step labels.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#activity">activity</a></dt><dd>Team delivery activity from GitHub, as a chart.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#review-insights">review_insights</a></dt><dd>What code review verified and caught before release.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#attention">attention</a></dt><dd>Blockers and risks, and the decisions needed from the business.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#tracker">tracker</a></dt><dd>Developer task track, from your task tracker and reviews.</dd></div>
+<div><dt><a href="{{docs}}slide-templates/#table">table</a></dt><dd>Next period's plan with owners and status.</dd></div>
+</dl>
+</div>
+</div>
+</section>
+
+<section class="section band" id="designs">
+<div class="wrap">
+<p class="kicker">Deck designs</p>
+<h2 class="title" style="max-width:16em">Six designs, one report.</h2>
+<p class="lede" style="margin-top:20px">Choose a design once in the installer or in config.json, or per report. The same report.json renders in all six, and your brand colours can override a design's palette.</p>
+<div class="styles">
+<div class="style-row lead-style">
+<div><h3>Showship</h3><p>The signature design. Every project gets its own colour, carried from the dashboard to the task tracker and the next-steps table. Gauges, pill-track phases and ship-trail ribbons on the title slides.</p><p class="links"><a href="{{root}}assets/downloads/example-deck-showship.pptx">Example deck, {{size:assets/downloads/example-deck-showship.pptx}}</a></p></div>
+<div class="shot"><img src="{{root}}assets/img/style-showship.webp" width="1998" height="390" loading="lazy" alt="Showship design: dark title slide with colour ribbons, an executive summary with gauges, and phase bars."></div>
+</div>
+<div class="style-row lead-style">
+<div><h3>Paper</h3><p>Set like a printed annual report. Paper background, navy ink, rules instead of cards, one big figure leading every slide. Coral red is kept for risks only.</p><p class="links"><a href="{{root}}assets/downloads/example-deck-paper.pptx">Example deck, {{size:assets/downloads/example-deck-paper.pptx}}</a></p></div>
+<div class="shot"><img src="{{root}}assets/img/style-paper.webp" width="1998" height="390" loading="lazy" alt="Paper design: title slide, executive summary and phase list set on a paper background with ruled lines."></div>
+</div>
+<div class="style-row">
+<div><h3>Classic</h3><p>Black and white editorial: serif headings, hairline rules, no boxes, one deep green accent.</p><p class="links"><a href="{{root}}assets/downloads/example-deck.pptx">Example deck, {{size:assets/downloads/example-deck.pptx}}</a></p></div>
+<div class="shot"><img src="{{root}}assets/img/style-classic.webp" width="1998" height="390" loading="lazy" alt="Classic design: black and white editorial slides with serif headings."></div>
+</div>
+</div>
+<p class="see-all"><a class="btn btn-line" href="{{root}}designs/">See all six designs</a><span class="muted small">Showship, Paper and Classic are above. Modern, Corporate and Vivid are on the designs page.</span></p>
+</div>
+</section>
+
+<section class="section" id="audience">
+<div class="wrap split">
+<div>
+<p class="kicker">Who it is for</p>
+<h2 class="title">Team leads reporting up. Individuals reporting their own work.</h2>
+<p class="lede" style="margin-top:20px">Two settings, <code>role</code> and <code>audience</code>, decide whose work is collected and how technical the deck may be. The installer asks for them, and you can change them in config.json at any time.</p>
+</div>
+<div class="table-wrap" role="region" aria-label="Roles and audiences, scrolls sideways on small screens" tabindex="0">
+<table class="keys">
+<thead><tr><th scope="col">You are</th><th scope="col">Set</th><th scope="col">You get</th></tr></thead>
+<tbody>
+<tr><td>Team lead reporting to business or management</td><td><code>role: lead</code><br><code>audience: business</code></td><td>The whole team's progress in plain language: owners, percentages, blockers, decisions needed, what is next.</td></tr>
+<tr><td>Team lead reporting to a CTO or engineering org</td><td><code>role: lead</code><br><code>audience: engineering</code></td><td>The same, with technical detail kept: architecture, test status, review findings.</td></tr>
+<tr><td>Developer reporting to a tech lead or manager</td><td><code>role: member</code><br><code>audience: engineering</code></td><td>Only your commits, the PRs you wrote or reviewed, and your tasks.</td></tr>
+<tr><td>Freelancer or contractor reporting to a client</td><td><code>role: member</code><br><code>audience: business</code></td><td>A client-ready update of your work, in their language, with your logo.</td></tr>
+<tr><td>Solo founder updating investors or a co-founder</td><td><code>role: member</code><br><code>audience: business</code></td><td>A short progress deck built from your repos.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="section-tight band" id="sources">
+<div class="wrap overview">
+<div>
+<h2>Tasks come from the tracker you already use.</h2>
+<p>Jira Cloud, Linear, Asana, ClickUp and Lark are built in. Any other tool works through an MCP server, read-only.</p>
+<p class="more"><a href="{{docs}}task-trackers/">Set up a task tracker</a></p>
+</div>
+<div>
+<h2>Your data stays on your machine.</h2>
+<p>There is no Showship server and no account. Commits, PRs and tasks are read locally, and tracker tokens stay in environment variables.</p>
+<p class="more"><a href="{{docs}}privacy/">Read the privacy notes</a></p>
+</div>
+</div>
+</section>
+
+<section class="band-ink" id="install">
+<div class="trail-band" aria-hidden="true" style="margin:0"><svg viewBox="0 0 400 122" preserveAspectRatio="none" focusable="false" style="transform:scaleY(-1)"><use href="#trail-paths"/></svg></div>
+<div class="wrap install-grid">
+<div>
+<p class="kicker">Install</p>
+<h2 class="title">Run one command, then answer a few questions.</h2>
+<div class="cmd cmd-lg" style="margin-top:28px"><code>npx showship</code><button type="button" class="copy" hidden>Copy</button></div>
+<p>The installer copies the skill into your agent's skills folder, records your role, audience, reporting rhythm, task tracker and deck design in config.json, installs the deck builder, and checks for git, gh and LibreOffice.</p>
+<ul class="reqs">
+<li>Node.js 18 or newer, and git</li>
+<li>The <a href="https://cli.github.com" rel="noopener">GitHub CLI</a>, signed in with <code>gh auth login</code></li>
+<li>LibreOffice, optional: lets the agent render slides and check the layout</li>
+</ul>
+<p class="small muted">Showship is in beta. Slide templates, config keys and installer options may change between releases, and the Codex and Antigravity installs have seen less testing.</p>
+<div class="install-links">
+<a class="btn btn-primary" href="{{docs}}install/">Read the install guide</a>
+<a href="{{docs}}quick-start/">Make your first report</a>
+</div>
+</div>
+<div>
+<h3>Where the skill is installed</h3>
+<div class="table-wrap" role="region" aria-label="Install folders by agent, scrolls sideways on small screens" tabindex="0">
+<table>
+<thead><tr><th scope="col">Agent</th><th scope="col">Global folder</th><th scope="col">Project folder</th></tr></thead>
+<tbody>
+<tr><td>Claude Code</td><td><code>~/<wbr>.claude/<wbr>skills/<wbr>showship</<wbr>code></td><td><code>./<wbr>.claude/<wbr>skills/<wbr>showship</<wbr>code></td></tr>
+<tr><td>Codex (experimental)</td><td><code>~/<wbr>.codex/<wbr>skills/<wbr>showship</<wbr>code></td><td><code>./<wbr>.agents/<wbr>skills/<wbr>showship</<wbr>code></td></tr>
+<tr><td>Antigravity (experimental)</td><td><code>~/<wbr>.gemini/<wbr>config/<wbr>skills/<wbr>showship</<wbr>code></td><td><code>./<wbr>.agents/<wbr>skills/<wbr>showship</<wbr>code></td></tr>
+<tr><td>Other agents (experimental)</td><td><code>~/<wbr>.agents/<wbr>skills/<wbr>showship</<wbr>code></td><td><code>./<wbr>.agents/<wbr>skills/<wbr>showship</<wbr>code></td></tr>
+</tbody>
+</table>
+</div>
+<p class="small">Updating is the same command with <code>@latest</code>. Your config.json is kept, and the previous skill files are backed up first.</p>
+</div>
+</div>
+</section>
+
+</main>

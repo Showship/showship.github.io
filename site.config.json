@@ -1,0 +1,55 @@
+{
+  "name": "Showship",
+  "tagline": "Show what you shipped.",
+  "description": "Showship turns git commits, pull requests, code reviews and tasks into a plain-language progress deck for your manager, client or CTO.",
+  "repo": "https://github.com/Soe-Moe/showship",
+  "issues": "https://github.com/Soe-Moe/showship/issues",
+  "npm": "https://www.npmjs.com/package/showship",
+  "license": "https://github.com/Soe-Moe/showship/blob/master/LICENSE",
+  "cname": "",
+  "docs": [
+    {
+      "group": "Start",
+      "pages": [
+        "",
+        "install",
+        "quick-start",
+        "examples"
+      ]
+    },
+    {
+      "group": "Configure",
+      "pages": [
+        "configuration",
+        "task-trackers"
+      ]
+    },
+    {
+      "group": "Decks",
+      "pages": [
+        "deck-styles",
+        "slide-templates",
+        "build-and-check"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "code-reviews",
+        "privacy",
+        "troubleshooting"
+      ]
+    },
+    {
+      "group": "Project",
+      "pages": [
+        "contributing"
+      ]
+    }
+  ],
+  "author": {
+    "name": "Soe Moe Oo",
+    "url": "https://github.com/Soe-Moe"
+  },
+  "googleSiteVerification": ""
+}
