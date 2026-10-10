@@ -324,6 +324,16 @@ pre {
     display: inline-block;
   }
 }
+/* Wider search field on desktop: icon and label on the left, the "/" shortcut pushed to the right. */
+@media (min-width: 1200px) {
+  #search-open {
+    min-width: 200px;
+    justify-content: flex-start;
+  }
+  #search-open kbd {
+    margin-left: auto;
+  }
+}
 kbd {
   font-size: 0.75rem;
   color: var(--muted);
@@ -344,6 +354,18 @@ kbd {
   display: block;
 }
 @media (max-width: 759px) {
+  /* The bar is one compact row (logo, search, theme, menu), so it can stay pinned. The open menu scrolls
+     inside itself when it is taller than the screen, and anchor jumps leave room for the bar. */
+  .has-js {
+    scroll-padding-top: 72px;
+  }
+  .has-js .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    max-height: 100svh;
+    overflow-y: auto;
+  }
   .has-js .menu-btn {
     display: inline-flex;
   }

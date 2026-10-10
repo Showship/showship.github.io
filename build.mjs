@@ -281,7 +281,7 @@ const hasGa4 = () => !!process.env.SITE_URL && /^G-[A-Z0-9]+$/.test(cfg.ga4 || "
 
 const CONSENT_BANNER = () => hasGa4() ? `<div id="consent" class="consent" role="region" aria-label="Cookie consent" hidden>
 <p>We use Google Analytics cookies to count visits. They are off unless you accept. <a href="__ROOT__docs/privacy/#this-website">Privacy notes</a></p>
-<div class="consent-actions"><button type="button" class="btn btn-line" data-consent="denied">Decline</button><button type="button" class="btn btn-line" data-consent="granted">Accept</button></div>
+<div class="consent-actions"><button type="button" class="btn btn-line" data-consent="denied">Decline</button><button type="button" class="btn btn-primary" data-consent="granted">Accept</button></div>
 </div>` : "";
 
 function analytics() {
