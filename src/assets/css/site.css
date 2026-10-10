@@ -1208,6 +1208,12 @@ th code {
   min-height: 44px;
   padding: 0 20px;
 }
+/* Accept uses the primary button's hover colours all the time, so it reads as the main choice. */
+.consent .btn-primary {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
 @media (max-width: 480px) {
   .consent-actions {
     width: 100%;
