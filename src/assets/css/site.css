@@ -672,10 +672,12 @@ figcaption {
 .vp video {
   cursor: pointer;
 }
+/* Sits below the poster's wordmark and tagline instead of covering them. */
 .vp-big {
   position: absolute;
-  inset: 0;
-  margin: auto;
+  left: 50%;
+  top: 76%;
+  transform: translate(-50%, -50%);
   width: 55px;
   height: 55px;
   display: grid;

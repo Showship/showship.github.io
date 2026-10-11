@@ -11,7 +11,7 @@ description: Showship turns git commits, pull requests, code reviews and tasks i
 <p class="lede">Showship reads your commits, pull requests, code reviews and tasks, then builds the progress deck your manager, client or CTO can follow. Weekly, per sprint, monthly or for any date range.</p>
 <div class="hero-actions">
 <div class="cmd"><code>npx showship</code><button type="button" class="copy" hidden>Copy</button></div>
-<a class="btn btn-line" href="{{docs}}">Read the documentation</a>
+<a class="btn btn-primary" href="{{docs}}">Read the documentation</a>
 </div>
 <p class="hero-note">An agent skill for Claude Code, plus Codex and Antigravity (experimental). Needs Node.js 18 or newer, git and the GitHub CLI. Beta release. <a href="{{root}}assets/downloads/example-deck-showship.pptx">Download the example deck</a> ({{size:assets/downloads/example-deck-showship.pptx}}).</p>
 </div>
@@ -46,7 +46,6 @@ description: Showship turns git commits, pull requests, code reviews and tasks i
 <section class="section" id="questions">
 <div class="wrap split split-sticky">
 <div>
-<p class="kicker">What the deck covers</p>
 <h2 class="title">One deck answers the six questions every audience asks.</h2>
 <p class="lede" style="margin-top:20px">Business readers get plain language, with technical terms only in brackets when they add something. Engineers get the technical version. Either way, every item says what changed for users or for the business.</p>
 </div>
@@ -63,7 +62,6 @@ description: Showship turns git commits, pull requests, code reviews and tasks i
 
 <section class="section band" id="how-it-works">
 <div class="wrap">
-<p class="kicker">How it works</p>
 <h2 class="title">Collect in each repo. Build once.</h2>
 <p class="lede" style="margin-top:20px">The set of repos changes from period to period, so the work is split in two. Run collect inside every repo that had work, then run build once from anywhere.</p>
 <ol class="flow">
@@ -88,7 +86,6 @@ Build the report</code></pre></div>
 
 <section class="section" id="slides">
 <div class="wrap">
-<p class="kicker">Slide layouts</p>
 <h2 class="title" style="max-width:16em">Thirteen layouts, picked to fit your data.</h2>
 <p class="lede" style="margin:20px 0 48px">Consecutive slides never reuse a layout, charts appear where there are real numbers, and every layout renders in all seven designs.</p>
 <div class="split split-sticky split-rev">
@@ -117,7 +114,6 @@ Build the report</code></pre></div>
 
 <section class="section band" id="designs">
 <div class="wrap">
-<p class="kicker">Deck designs</p>
 <h2 class="title" style="max-width:16em">Seven designs, one report.</h2>
 <p class="lede" style="margin-top:20px">Choose a design once in the installer or in config.json, or per report. The same report.json renders in all seven, and your brand colours can override a design's palette.</p>
 <div class="styles">
@@ -141,7 +137,6 @@ Build the report</code></pre></div>
 <section class="section" id="audience">
 <div class="wrap split">
 <div>
-<p class="kicker">Who it is for</p>
 <h2 class="title">Team leads reporting up. Individuals reporting their own work.</h2>
 <p class="lede" style="margin-top:20px">Two settings, <code>role</code> and <code>audience</code>, decide whose work is collected and how technical the deck may be. The installer asks for them, and you can change them in config.json at any time.</p>
 </div>
@@ -179,7 +174,6 @@ Build the report</code></pre></div>
 <div class="trail-band" aria-hidden="true" style="margin:0"><svg viewBox="0 0 400 122" preserveAspectRatio="none" focusable="false" style="transform:scaleY(-1)"><use href="#trail-paths"/></svg></div>
 <div class="wrap install-grid">
 <div>
-<p class="kicker">Install</p>
 <h2 class="title">Run one command, then answer a few questions.</h2>
 <div class="cmd cmd-lg" style="margin-top:28px"><code>npx showship</code><button type="button" class="copy" hidden>Copy</button></div>
 <p>The installer copies the skill into your agent's skills folder, records your role, audience, reporting rhythm, task tracker and deck design in config.json, installs the deck builder, and checks for git, gh and LibreOffice.</p>
@@ -200,10 +194,10 @@ Build the report</code></pre></div>
 <table>
 <thead><tr><th scope="col">Agent</th><th scope="col">Global folder</th><th scope="col">Project folder</th></tr></thead>
 <tbody>
-<tr><td>Claude Code</td><td><code>~/<wbr>.claude/<wbr>skills/<wbr>showship</<wbr>code></td><td><code>./<wbr>.claude/<wbr>skills/<wbr>showship</<wbr>code></td></tr>
-<tr><td>Codex (experimental)</td><td><code>~/<wbr>.codex/<wbr>skills/<wbr>showship</<wbr>code></td><td><code>./<wbr>.agents/<wbr>skills/<wbr>showship</<wbr>code></td></tr>
-<tr><td>Antigravity (experimental)</td><td><code>~/<wbr>.gemini/<wbr>config/<wbr>skills/<wbr>showship</<wbr>code></td><td><code>./<wbr>.agents/<wbr>skills/<wbr>showship</<wbr>code></td></tr>
-<tr><td>Other agents (experimental)</td><td><code>~/<wbr>.agents/<wbr>skills/<wbr>showship</<wbr>code></td><td><code>./<wbr>.agents/<wbr>skills/<wbr>showship</<wbr>code></td></tr>
+<tr><td>Claude Code</td><td><code>~/<wbr>.claude/<wbr>skills/<wbr>showship</code></td><td><code>./<wbr>.claude/<wbr>skills/<wbr>showship</code></td></tr>
+<tr><td>Codex (experimental)</td><td><code>~/<wbr>.codex/<wbr>skills/<wbr>showship</code></td><td><code>./<wbr>.agents/<wbr>skills/<wbr>showship</code></td></tr>
+<tr><td>Antigravity (experimental)</td><td><code>~/<wbr>.gemini/<wbr>config/<wbr>skills/<wbr>showship</code></td><td><code>./<wbr>.agents/<wbr>skills/<wbr>showship</code></td></tr>
+<tr><td>Other agents (experimental)</td><td><code>~/<wbr>.agents/<wbr>skills/<wbr>showship</code></td><td><code>./<wbr>.agents/<wbr>skills/<wbr>showship</code></td></tr>
 </tbody>
 </table>
 </div>
