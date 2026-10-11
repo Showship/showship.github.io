@@ -372,7 +372,6 @@ docPages.forEach((p, idx) => {
 <details class="side-m"><summary>Documentation menu</summary><nav aria-label="Documentation, mobile">${navHtml}</nav></details>
 <main id="main" class="doc">
 <header class="doc-head">
-<svg class="doc-trail" viewBox="0 0 400 122" preserveAspectRatio="none" aria-hidden="true" focusable="false"><use href="#trail-paths"/></svg>
 <p class="crumb">${esc(p.group)}</p>
 <h1>${esc(p.title)}</h1>
 ${p.description ? `<p class="lead">${esc(p.description)}</p>` : ""}
