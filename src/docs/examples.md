@@ -66,6 +66,17 @@ The Clinic Dashboard track is 85%, not 80%. Fix it everywhere
 Remove the team activity chart
 ```
 
+## Screenshots and photos
+
+Slides have no pictures unless you ask. See [Adding screenshots and photos]({{docs}}slide-templates/#adding-screenshots-and-photos) for formats and how it works.
+
+```text
+Add a screenshot of the booking screen to the Booking Calendar task
+Use the three phone screenshots in ~/Desktop/shots as a gallery slide
+Take screenshots of the sign-in and search screens from the patient app repo
+Add the whiteboard photo to the architecture slide
+```
+
 ## Task tracker and people
 
 ```text

@@ -130,7 +130,7 @@ Icon rows with an optional visual: 2 to 4 rows. Without a visual the rows use th
 
 ## `gallery`
 
-A screenshot strip: 2 to 7 screenshots of the same aspect ratio, with step labels.
+A screenshot strip: 2 to 7 screenshots or photos with step labels. Different shapes are fine: each image is padded to the first one's shape, never stretched or cropped.
 
 ```json
 { "type": "gallery", "eyebrow": "...", "title": "...",
@@ -182,7 +182,7 @@ Blockers and decisions needed. Two columns: Blockers and Risks, and Decisions Ne
 
 Tasks written out in full, from the tracker's subtasks, your drafts and the lead's reviews. Use it after a project's overview slides and after `tracker`, so a reader can recall what each task was a week later. One to three tasks per slide: one task gets the whole width (summary on the left, steps on the right), two or three become columns.
 
-Each task has a `title` (50 characters), `owner` (30), `state` and a `status` word (22), a `summary` (200) saying what it is for and what happened this period, and up to five `points` (64 each): its subtasks or steps, each with its own `state` (default `done`). Optional `project` sets the colour in the Showship, Paper and Ember designs, and `footnote` (140). Three columns are tight: give each task about four points and 140 characters of summary, or use two tasks per slide and split the rest onto another slide. The agent plans these slides per project (repo): up to three tasks fit one slide; with more, it splits them across slides of two or three tasks with the same `project` and "part 1 of 2" in the eyebrow; a single large task gets its own slide; small tasks of one product share a slide. The builder warns when a column would run past its panel.
+Each task has a `title` (50 characters), `owner` (30), `state` and a `status` word (22), a `summary` (200) saying what it is for and what happened this period, and up to five `points` (64 each): its subtasks or steps, each with its own `state` (default `done`). Optional `image` is a screenshot or photo of the task (a path relative to `report.json`) with a short `caption` (60). One task shows it large beside the steps; two or three show a thumbnail under the summary, which takes room from the steps. Optional `project` sets the colour in the Showship, Paper and Ember designs, and `footnote` (140). Three columns are tight: give each task about four points and 140 characters of summary, or use two tasks per slide and split the rest onto another slide. The agent plans these slides per project (repo): up to three tasks fit one slide; with more, it splits them across slides of two or three tasks with the same `project` and "part 1 of 2" in the eyebrow; a single large task gets its own slide; small tasks of one product share a slide. The builder warns when a column would run past its panel.
 
 ```json
 { "type": "task_detail", "eyebrow": "ClinicBook · Patient App", "title": "ClinicBook: What Was Done on Each Task",
@@ -222,6 +222,46 @@ Next steps and owners. Usually the last content slide, with 3 to 6 rows.
 { "type": "table", "eyebrow": "Looking Ahead", "title": "Next Steps & Focus Areas",
   "rows": [ { "project": "ClinicBook · Patient App", "owner": "Leo Park @Leo",
     "focus": "up to 130 chars", "current": "P3 · 40%", "state": "progress" } ] }
+```
+
+## Adding screenshots and photos
+
+Slides have no pictures unless you ask for them, and the example decks on this site have none. When you want them, say so in your prompt or write it in `notes.md`. Three templates take pictures: `task_detail` (a picture of one task), `rows` (one screenshot beside the text) and `gallery` (2 to 7 screens in a row).
+
+```text
+Add a screenshot of the booking screen to the Booking Calendar task
+Use the three phone screenshots in ~/Desktop/shots as a gallery slide
+Take screenshots of the sign-in and search screens from the patient app repo
+Add the whiteboard photo to the architecture slide
+```
+
+### Your own files
+
+Give the path in the prompt. The agent copies the files into the report folder under `images/` and refers to them with relative paths, for example `images/booking.png`.
+
+- **Formats:** PNG, JPG, GIF, WebP and SVG. HEIC photos from a phone must be converted to JPG first; on a Mac, `sips -s format jpeg in.heic --out out.jpg` does it.
+- **Handled for you:** phone photos are rotated upright, WebP and similar formats are converted so PowerPoint can show them, and files wider than 1800 pixels are scaled down so the deck stays small.
+- **Web addresses** are not used directly. The agent downloads the image into `images/` first and tells you.
+- **A missing or unreadable file** is skipped with a warning and the slide is built without it. A `gallery` with fewer than two usable images is left out.
+
+### Screenshots from a project repo
+
+Ask the agent to capture them. It finds how the app runs from the README or `package.json`, tells you what it is about to start, and asks before it starts servers, installs packages or uses anything that needs a login. It captures phone screens at 390 x 844 and web pages at 1440 x 900 as PNG files in `images/`. If the app cannot be run, it asks you for screenshots instead of guessing. A test account or seeded demo data makes this work best.
+
+### Before you use a picture
+
+Do not put pictures on a slide that show real customer data, personal details, tokens, internal addresses or credentials. The agent looks at each image, but you know what is sensitive. Ask for a cropped image or a test account instead.
+
+### In report.json
+
+If you edit the file by hand, give each image as a path relative to `report.json`, and run the check. It fails on a missing file or an unsupported type.
+
+```json
+{ "type": "task_detail", "title": "ClinicBook: Booking Calendar",
+  "tasks": [ { "title": "Booking screen", "state": "progress", "status": "In progress",
+    "summary": "Patients pick a doctor, a day and a time in one screen.",
+    "image": "images/booking.png", "caption": "Booking screen, this week",
+    "points": [ { "text": "Doctor picker", "state": "done" } ] } ] }
 ```
 
 ## Choosing slides
