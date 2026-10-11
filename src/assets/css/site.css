@@ -1544,9 +1544,38 @@ h4:hover .anchor,
   text-align: right;
   grid-column: 2;
 }
+/* Phones: two ruled rows, the label on the left and the page title on the right, instead of two tall boxes. */
 @media (max-width: 559px) {
+  .pager {
+    gap: 0;
+    margin-top: 48px;
+    border-top: 1px solid var(--rule);
+  }
+  .pager > span:empty {
+    display: none;
+  }
+  .pager a,
   .pager .next {
     grid-column: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    min-height: 52px;
+    padding: 14px 0;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    border-radius: 0;
+    background: transparent;
+    font-size: 1rem;
+    text-align: right;
+  }
+  .pager a span {
+    margin: 0;
+    flex: none;
+  }
+  .pager a:hover {
+    border-bottom-color: var(--ink);
   }
 }
 
