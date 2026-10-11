@@ -8,14 +8,14 @@ Showship is an Agent Skill (a `SKILL.md` folder) for anyone who has to report wh
 
 You run it inside each repo you touched. Your AI coding agent reads the commits, pull requests, reviews and replies, and the tasks from your task tracker (Jira, Linear, Asana, ClickUp, Lark, or any other tool through MCP). It translates them into plain business language (or keeps them technical for engineers), and builds a slide deck with charts, owners, progress, blockers and the plan for the next period.
 
-It works with **Claude Code**, plus **Codex** and **Antigravity** (experimental) and other agents that read `SKILL.md` folders.
+It works with **Claude Code** and **Antigravity**, plus **Codex** (experimental) and other agents that read `SKILL.md` folders.
 
 ```bash
 npx showship
 ```
 
 > [!NOTE]
-> Showship is in beta. Slide templates, config keys and installer options may still change between releases. The Jira, Linear, Asana and ClickUp integrations and the Codex and Antigravity installs have not yet been tested against many real setups. Please [open an issue]({{issues}}) with feedback or bugs.
+> Showship is in beta. Slide templates, config keys and installer options may still change between releases. The Jira, Linear, Asana and ClickUp integrations and the Codex install have not yet been tested against many real setups. Please [open an issue]({{issues}}) with feedback or bugs.
 
 ## Why it exists
 

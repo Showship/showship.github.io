@@ -270,4 +270,4 @@ For `role: lead`, the agent follows the six questions: a `dashboard` first, then
 
 For `role: member` the deck is shorter, typically 5 to 8 slides, and skips `tracker` and `activity` unless you ask.
 
-Rules the agent follows: never the same template on consecutive slides, one-line titles in the form "Project: Outcome", every item answers "so what", and a track's progress is the average of its phase percentages, with a footnote saying so.
+Rules the agent follows: every number has a source and says how it was counted, the next period's plan comes from you or your tracker and is never invented, status words match the data, every collected repo appears on a slide, never the same template on consecutive slides, one-line titles in the form "Project: Outcome", every item answers "so what", and a track's progress is the average of its phase percentages, with a footnote saying so.

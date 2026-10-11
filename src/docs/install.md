@@ -16,7 +16,7 @@ Use the up and down arrows to choose, Enter to confirm, and the left arrow or Es
 
 | Question | Choices |
 | --- | --- |
-| Which agent do you want to install for? | Claude Code, Codex (experimental), Antigravity (experimental), Other agents (experimental) |
+| Which agent do you want to install for? | Claude Code, Codex (experimental), Antigravity, Other agents (experimental) |
 | Where do you want to install it? | Global (all projects) or This project (this folder only) |
 | How will you use it? | Team lead (the whole team's work) or Individual (your own work) |
 | Who will read the report? | Business (plain language) or Engineering (technical terms are fine) |
@@ -32,7 +32,7 @@ Then it copies the skill, records your choices in `config.json` (keeping anythin
 | --- | --- | --- |
 | Claude Code | `~/.claude/skills/showship` | `./.claude/skills/showship` |
 | Codex (experimental) | `~/.codex/skills/showship` | `./.agents/skills/showship` |
-| Antigravity (experimental) | `~/.gemini/config/skills/showship` | `./.agents/skills/showship` |
+| Antigravity | `~/.gemini/config/skills/showship` | `./.agents/skills/showship` |
 | Other agents (experimental) | `~/.agents/skills/showship` | `./.agents/skills/showship` |
 
 ## Install without prompts
