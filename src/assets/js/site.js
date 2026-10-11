@@ -190,7 +190,7 @@
     var buildLightbox = function () {
       var d = document.createElement("dialog");
       d.className = "lightbox";
-      d.innerHTML = '<div class="lightbox-bar"><p class="lightbox-title"></p><button type="button" class="lightbox-close">Close</button></div>' +
+      d.innerHTML = '<div class="lightbox-bar"><p class="lightbox-title"></p><button type="button" class="lightbox-close" aria-label="Close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>' +
         '<div class="lightbox-stage"><p class="lightbox-status" role="status"></p><img alt="" hidden></div>' +
         '<p class="lightbox-foot"><a rel="noopener" target="_blank">Open the image in a new tab</a></p>';
       document.body.appendChild(d);

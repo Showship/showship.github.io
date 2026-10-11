@@ -1,14 +1,14 @@
 ---
 title: Deck designs
-description: The six deck designs, their fonts, and how to set a design, brand colours and the Shipped with Showship mark.
+description: The seven deck designs, their fonts, and how to set a design, brand colours and the Shipped with Showship mark.
 seoTitle: Deck designs, fonts and brand colours
 ---
 
-Six designs, chosen to read well in a business meeting. Every slide type works in every design, from the same `report.json`. To compare them side by side, see the [designs gallery]({{root}}designs/).
+Seven designs, chosen to read well in a business meeting. Every slide type works in every design, from the same `report.json`. To compare them side by side, see the [designs gallery]({{root}}designs/).
 
 Set the design once in `config.json` (`"style": "vivid"`), in the installer (`--style vivid`), or for a single report with `"style"` in that report's `report.json`. `theme` colours still override the design's palette, so you can keep a layout and use your brand colours.
 
-## The six designs
+## The seven designs
 
 ### Showship
 
@@ -27,6 +27,16 @@ Set like a printed annual report. Paper background and navy ink, rules instead o
 ![Paper design preview]({{root}}assets/img/style-paper.webp)
 
 [Preview of all Paper slides]({{root}}assets/img/paper-grid.webp) or [download the example deck]({{root}}assets/downloads/example-deck-paper.pptx).
+
+### Ember
+
+A dark deck for rooms where the projector is the brightest thing. Graphite slides, content on flat lighter panels with no shadows or borders, one amber accent for the focal point, and coral red kept for risks only. Figures are set large in Georgia, and a big slide number sits in the header band.
+
+Every slide type has its own composition: a hero panel with one giant figure on the dashboard, vertical pillars for progress, a zigzag trail for timelines, banded rows. The `rows` template does not draw its illustrations in this design, so prefer a screenshot or plain rows. The `theme.dark` colour recolours the whole deck, so give it a dark value.
+
+![Ember design preview]({{root}}assets/img/style-ember.webp)
+
+[Preview of all Ember slides]({{root}}assets/img/ember-grid.webp) or [download the example deck]({{root}}assets/downloads/example-deck-ember.pptx).
 
 ### Classic
 
@@ -61,7 +71,7 @@ PowerPoint substitutes a font if it is not installed, so install the ones your d
 | Design | Heading font | Body font |
 | --- | --- | --- |
 | Showship, Paper | Poppins | Arial |
-| Classic, Vivid | Georgia | Arial |
+| Ember, Classic, Vivid | Georgia | Arial |
 | Modern | Cambria | Calibri |
 | Corporate | Arial | Arial |
 

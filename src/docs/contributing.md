@@ -30,7 +30,7 @@ Read `skill/references/design_rules.md` first. Then:
 
 - Change a design by editing its definition in `STYLES` and its layout functions in `build_deck.js`. Do not patch the generated `.pptx`.
 - A new slide type needs its definition in `references/report.schema.json` (fields, counts and `maxLength` limits), its description in `references/templates.md`, an implementation for every design, and an entry in the example report.
-- Build the example in all six designs and run `check_deck.js` on each. Then add a long-text case with labels at their character limits and run it again. A template that only works with short example text is not finished.
+- Build the example in every design and run `check_deck.js` on each. Then add a long-text case with labels at their character limits and run it again. A template that only works with short example text is not finished.
 - Refresh the `docs/` images with `make_previews.js`.
 
 ## Adding a task tracker collector
