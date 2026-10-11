@@ -6,7 +6,7 @@ seoTitle: Showship documentation: set up and build progress decks
 
 Showship is an Agent Skill (a `SKILL.md` folder) for anyone who has to report what they built. Team leads use it to report the whole team to management. Individuals (developers, freelancers, contractors, founders) use it to report their own work to a manager, tech lead or client.
 
-You run it inside each repo you touched. Your AI coding agent reads the commits, pull requests, reviews and replies, translates them into plain business language (or keeps them technical for engineers), and builds a slide deck with charts, owners, progress, blockers and the plan for the next period.
+You run it inside each repo you touched. Your AI coding agent reads the commits, pull requests, reviews and replies, and the tasks from your task tracker (Jira, Linear, Asana, ClickUp, Lark, or any other tool through MCP). It translates them into plain business language (or keeps them technical for engineers), and builds a slide deck with charts, owners, progress, blockers and the plan for the next period.
 
 It works with **Claude Code**, plus **Codex** and **Antigravity** (experimental) and other agents that read `SKILL.md` folders.
 
