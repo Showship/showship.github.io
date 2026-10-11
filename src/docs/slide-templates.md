@@ -1,6 +1,6 @@
 ---
 title: Slide templates
-description: The report.json fields and the twelve slide templates, from dashboard and timeline to tracker and table, with character limits.
+description: The report.json fields and the thirteen slide templates, from dashboard and timeline to tracker and table, with character limits.
 seoTitle: Slide templates and report.json fields
 ---
 
@@ -176,6 +176,25 @@ Blockers and decisions needed. Two columns: Blockers and Risks, and Decisions Ne
   "decisions": [ { "title": "Can patients turn off SMS reminders and keep email only?",
     "text": "Today every patient with a phone number receives SMS reminders.",
     "meta": "Options: allow opt-out · clinic decides per patient · keep as today" } ] }
+```
+
+## `task_detail`
+
+Tasks written out in full, from the tracker's subtasks, your drafts and the lead's reviews. Use it after a project's overview slides and after `tracker`, so a reader can recall what each task was a week later. One to three tasks per slide: one task gets the whole width (summary on the left, steps on the right), two or three become columns.
+
+Each task has a `title` (50 characters), `owner` (30), `state` and a `status` word (22), a `summary` (200) saying what it is for and what happened this period, and up to five `points` (64 each): its subtasks or steps, each with its own `state` (default `done`). Optional `project` sets the colour in the Showship, Paper and Ember designs, and `footnote` (140). Three columns are tight: give each task about four points and 140 characters of summary, or use two tasks per slide and split the rest onto another slide. The agent plans these slides per project (repo): up to three tasks fit one slide; with more, it splits them across slides of two or three tasks with the same `project` and "part 1 of 2" in the eyebrow; a single large task gets its own slide; small tasks of one product share a slide. The builder warns when a column would run past its panel.
+
+```json
+{ "type": "task_detail", "eyebrow": "ClinicBook · Patient App", "title": "ClinicBook: What Was Done on Each Task",
+  "tasks": [
+    { "title": "P3 · Booking Calendar", "owner": "Leo Park @Leo", "state": "progress", "status": "In progress",
+      "summary": "Patients pick a doctor, a day and a time slot in one screen. Free slots update as others book.",
+      "points": [
+        { "text": "Doctor and day picker built", "state": "done" },
+        { "text": "Booking confirmation screen", "state": "progress" },
+        { "text": "Rescheduling an existing booking", "state": "next" } ] }
+  ],
+  "footnote": "Detail comes from the task tracker and the lead's code reviews." }
 ```
 
 ## `tracker`

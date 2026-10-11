@@ -46,7 +46,7 @@ for (const f of fs.readdirSync(path.join(repo, "docs")).filter((n) => n.endsWith
   copy(path.join(repo, "docs", f), out("downloads", f));
 }
 
-const previews = ["showship-grid", "paper-grid", "ember-grid", "classic-grid", "modern-grid", "corporate-grid", "vivid-grid", "slide-dashboard", "slide-phase-bars", "slide-review-insights", "slide-attention", "slide-tracker", "slide-next-steps", "style-showship", "style-paper", "style-ember", "style-classic", "style-modern", "style-corporate", "style-vivid"];
+const previews = ["showship-grid", "paper-grid", "ember-grid", "classic-grid", "modern-grid", "corporate-grid", "vivid-grid", "slide-dashboard", "slide-phase-bars", "slide-review-insights", "slide-attention", "slide-tracker", "slide-task-detail", "slide-next-steps", "style-showship", "style-paper", "style-ember", "style-classic", "style-modern", "style-corporate", "style-vivid"];
 for (const name of previews) {
   const to = out("img", `${name}.webp`);
   const info = await sharp(path.join(repo, "docs", `${name}.png`)).webp({ quality: 84 }).toFile(to);
