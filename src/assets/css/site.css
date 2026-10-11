@@ -672,12 +672,11 @@ figcaption {
 .vp video {
   cursor: pointer;
 }
-/* Sits below the poster's wordmark and tagline instead of covering them. */
+/* Bottom left, where the play and pause button sits once the video has started, so it never covers the poster. */
 .vp-big {
   position: absolute;
-  left: 50%;
-  top: 76%;
-  transform: translate(-50%, -50%);
+  left: 12px;
+  bottom: 12px;
   width: 55px;
   height: 55px;
   display: grid;
