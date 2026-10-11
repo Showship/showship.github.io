@@ -339,7 +339,7 @@
     function read(store) { try { return window[store].getItem(KEY); } catch (e) { return null; } }
     function write(store, v) { try { window[store].setItem(KEY, v); } catch (e) {} }
     function clear(store) { try { window[store].removeItem(KEY); } catch (e) {} }
-    function showConsent(show) { consent.hidden = !show; if (show) consent.querySelector("button").focus(); }
+    function showConsent(show) { consent.hidden = !show; if (show) consent.querySelector("button").focus({ preventScroll: true }); }
     consent.addEventListener("click", function (e) {
       var b = e.target.closest("[data-consent]");
       if (!b) return;
@@ -348,9 +348,9 @@
       else { clear("localStorage"); write("sessionStorage", "denied"); }
       if (typeof window.gtag === "function") window.gtag("consent", "update", { analytics_storage: v });
       showConsent(false);
-      if (consentOpen) consentOpen.focus();
+      if (consentOpen) consentOpen.focus({ preventScroll: true });
     });
-    consent.addEventListener("keydown", function (e) { if (e.key === "Escape") { showConsent(false); if (consentOpen) consentOpen.focus(); } });
+    consent.addEventListener("keydown", function (e) { if (e.key === "Escape") { showConsent(false); if (consentOpen) consentOpen.focus({ preventScroll: true }); } });
     if (consentOpen) {
       consentOpen.hidden = false;
       consentOpen.addEventListener("click", function () { showConsent(true); });
