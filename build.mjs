@@ -258,7 +258,7 @@ function header(root, current) {
 function footer(root) {
   return `<footer class="site-footer">
 <div class="wrap foot">
-<p class="foot-brand"><img src="${root}assets/img/showship-mark.svg" alt="" width="28" height="28"><span><strong>Showship</strong> shows what you shipped. MIT licensed, by Soe Moe Oo @Skylar.</span></p>
+<p class="foot-brand"><img src="${root}assets/img/showship-mark.svg" alt="" width="28" height="28"><span><strong>Showship</strong> shows what you shipped. By Soe Moe Oo @Skylar.</span></p>
 <nav aria-label="Footer"><a href="${root}docs/">Documentation</a><a href="${root}docs/install/">Install</a><a href="${root}docs/quick-start/">Quick start</a><a href="${root}designs/">Designs</a><a href="${root}docs/task-trackers/">Task trackers</a><a href="${root}docs/privacy/">Privacy</a><a href="${cfg.repo}" rel="noopener">GitHub</a><a href="${cfg.npm}" rel="noopener">npm</a><a href="${cfg.issues}" rel="noopener">Report an issue</a>${hasGa4() ? '<button type="button" class="foot-btn" data-consent-open hidden>Cookie settings</button>' : ""}</nav>
 </div>
 </footer>`;
