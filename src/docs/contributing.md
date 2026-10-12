@@ -39,4 +39,4 @@ Add a file in `skill/scripts/tasks/` that returns the normalized rows described 
 
 ## License
 
-Showship is [MIT licensed]({{license}}), copyright Soe Moe Oo @Skylar.
+Showship is [MIT licensed]({{license}}), copyright Soe Moe Oo.
