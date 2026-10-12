@@ -82,6 +82,26 @@
     wireCopy(b, function () { return b.closest(".cmd").querySelector("code").textContent.trim(); });
   });
 
+  /* ----- Main menu: highlight the home-page section in view ----- */
+  var spy = [];
+  document.querySelectorAll(".primary a[href*='#']").forEach(function (a) {
+    var el = document.getElementById(a.getAttribute("href").split("#")[1]);
+    if (el) spy.push({ a: a, el: el });
+  });
+  if (spy.length) {
+    var spyTick = false;
+    var runSpy = function () {
+      spyTick = false;
+      var cur = null;
+      spy.forEach(function (x) { if (x.el.getBoundingClientRect().top <= 120) cur = x; });
+      spy.forEach(function (x) {
+        if (x === cur) x.a.setAttribute("aria-current", "location"); else x.a.removeAttribute("aria-current");
+      });
+    };
+    window.addEventListener("scroll", function () { if (!spyTick) { spyTick = true; requestAnimationFrame(runSpy); } }, { passive: true });
+    runSpy();
+  }
+
   /* ----- "On this page" highlight ----- */
   var tocLinks = Array.prototype.slice.call(document.querySelectorAll(".toc a"));
   if (tocLinks.length && "IntersectionObserver" in window) {

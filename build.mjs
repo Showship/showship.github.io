@@ -184,6 +184,7 @@ function renderMarkdown(md, page) {
 // ---------- Layout ----------
 
 const ICON = {
+  ext: '<svg class="i-ext" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="M8 4H5.5A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16h9a1.5 1.5 0 0 0 1.5-1.5V12M11 4h5v5M16 4l-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only"> (opens in a new tab)</span>',
   search: '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12.8 12.8 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
   menu: '<svg class="i-bars" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-x" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="m4.5 4.5 11 11m0-11-11 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
   close: '<svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="m4.5 4.5 11 11m0-11-11 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
@@ -245,7 +246,7 @@ function header(root, current) {
 <img class="logo logo-light" src="${root}assets/img/showship-logo-compact.svg" alt="" width="161" height="34">
 <img class="logo logo-dark" src="${root}assets/img/showship-logo-compact-dark.svg" alt="" width="161" height="34">
 </a>
-<nav class="primary" id="primary-nav" aria-label="Main">${links}<a href="${cfg.repo}" rel="noopener">GitHub</a></nav>
+<nav class="primary" id="primary-nav" aria-label="Main">${links}<a href="${cfg.repo}" target="_blank" rel="noopener noreferrer">GitHub${ICON.ext}</a></nav>
 <div class="tools">
 <button type="button" class="tool" id="search-open" hidden aria-label="Search the documentation" aria-keyshortcuts="/">${ICON.search}<span class="tool-label">Search</span><kbd aria-hidden="true">/</kbd></button>
 <button type="button" class="tool tool-icon" id="theme-toggle" hidden aria-label="Switch theme">${ICON.theme}</button>
