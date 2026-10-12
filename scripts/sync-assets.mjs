@@ -53,11 +53,19 @@ for (const name of previews) {
   console.log("webp  ", path.relative(site, to), `${info.width}x${info.height}`, `${Math.round(info.size / 1024)} KB`);
 }
 
-// Social preview: the demo poster (logo and tagline on brand ink) with the install command under the centre text, 1200x630.
-// The text is drawn from the SVG, so Poppins must be installed on the machine that runs this.
-const ogCmd = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect x="376" y="436" width="448" height="64" rx="32" fill="#17153a" fill-opacity="0.55" stroke="#ffc83d" stroke-width="2.5"/><text x="600" y="479" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="34" fill="#ffc83d">npx showship@latest</text></svg>`;
-const ogBase = await sharp(path.join(site, "src", "assets", "video", "showship-demo-poster.webp")).resize(1200, 630, { fit: "cover" }).png().toBuffer();
-const og = await sharp(ogBase).composite([{ input: Buffer.from(ogCmd) }]).png().toFile(out("img", "og.png"));
+// Social preview, 1200x630: headline and description on paper, the demo poster as a rounded card with the install command.
+// Text is drawn from SVG, so Poppins and Arial must be installed on the machine that runs this.
+const OG = { w: 1200, h: 630, cw: 500, ch: 440, cx: 650, cy: 95 };
+const ogCmd = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG.cw}" height="${OG.ch}"><rect x="${(OG.cw - 300) / 2}" y="300" width="300" height="48" rx="24" fill="#17153a" fill-opacity="0.55" stroke="#ffc83d" stroke-width="2"/><text x="${OG.cw / 2}" y="332" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="22" fill="#ffc83d">npx showship@latest</text></svg>`;
+const ogMask = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG.cw}" height="${OG.ch}"><rect width="${OG.cw}" height="${OG.ch}" rx="28"/></svg>`;
+const ogText = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG.w}" height="${OG.h}"><g font-family="Poppins" font-weight="700" font-size="56" fill="#17153a"><text x="70" y="262">Progress decks</text><text x="70" y="326">from your</text><text x="70" y="390">GitHub activity</text></g><g font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#48465c"><text x="70" y="448">For your manager, client or CTO,</text><text x="70" y="482">in plain language.</text></g><text x="70" y="568" font-family="Poppins" font-weight="600" font-size="24" fill="#5b3fe0">showship.github.io</text></svg>`;
+const ogCardRaw = await sharp(path.join(site, "src", "assets", "video", "showship-demo-poster.webp")).resize(OG.cw, OG.ch, { fit: "cover" }).composite([{ input: Buffer.from(ogCmd) }]).png().toBuffer();
+const ogCard = await sharp(ogCardRaw).composite([{ input: Buffer.from(ogMask), blend: "dest-in" }]).png().toBuffer();
+const ogCircles = `<svg xmlns="http://www.w3.org/2000/svg" width="${OG.w}" height="${OG.h}"><circle cx="640" cy="150" r="125" fill="#10a6a0" fill-opacity="0.18"/><circle cx="1020" cy="545" r="135" fill="#6c4cf5" fill-opacity="0.16"/></svg>`;
+const ogLogo = await sharp(path.join(site, "src", "assets", "img", "showship-logo-compact.svg"), { density: 300 }).resize({ height: 46 }).png().toBuffer();
+const og = await sharp({ create: { width: OG.w, height: OG.h, channels: 4, background: "#f7f4ee" } })
+  .composite([{ input: Buffer.from(ogCircles) }, { input: ogLogo, left: 70, top: 70 }, { input: ogCard, left: OG.cx, top: OG.cy }, { input: Buffer.from(ogText) }])
+  .png().toFile(out("img", "og.png"));
 console.log("png   src/assets/img/og.png", `${og.width}x${og.height}`);
 
 // Fonts: the Showship deck styles use Poppins; ship the three weights the site uses.
