@@ -53,8 +53,11 @@ for (const name of previews) {
   console.log("webp  ", path.relative(site, to), `${info.width}x${info.height}`, `${Math.round(info.size / 1024)} KB`);
 }
 
-// Social preview: the style strip on the brand ink colour, 1200x630.
-const og = await sharp(path.join(repo, "docs", "style-showship.png")).resize(1200, 630, { fit: "cover", position: "left", background: "#17153A" }).png().toFile(out("img", "og.png"));
+// Social preview: the demo poster (logo and tagline on brand ink) with the install command under the centre text, 1200x630.
+// The text is drawn from the SVG, so Poppins must be installed on the machine that runs this.
+const ogCmd = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect x="376" y="436" width="448" height="64" rx="32" fill="#17153a" fill-opacity="0.55" stroke="#ffc83d" stroke-width="2.5"/><text x="600" y="479" text-anchor="middle" font-family="Poppins" font-weight="600" font-size="34" fill="#ffc83d">npx showship@latest</text></svg>`;
+const ogBase = await sharp(path.join(site, "src", "assets", "video", "showship-demo-poster.webp")).resize(1200, 630, { fit: "cover" }).png().toBuffer();
+const og = await sharp(ogBase).composite([{ input: Buffer.from(ogCmd) }]).png().toFile(out("img", "og.png"));
 console.log("png   src/assets/img/og.png", `${og.width}x${og.height}`);
 
 // Fonts: the Showship deck styles use Poppins; ship the three weights the site uses.

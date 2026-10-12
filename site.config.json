@@ -1,7 +1,7 @@
 {
   "name": "Showship",
   "tagline": "Show what you shipped.",
-  "description": "Showship turns git commits, pull requests, code reviews and tasks into a plain-language progress deck for your manager, client or CTO.",
+  "description": "Showship turns git commits, pull requests and tasks into a plain-language progress deck for your manager, client or CTO.",
   "repo": "https://github.com/Soe-Moe/showship",
   "issues": "https://github.com/Soe-Moe/showship/issues",
   "npm": "https://www.npmjs.com/package/showship",
