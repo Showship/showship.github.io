@@ -14,13 +14,19 @@ node ~/.claude/skills/showship/scripts/build_deck.js report.json out.pptx
 
 Branding defaults (company, presenter, logo, style, theme) come from the skill's `config.json`. Values in `report.json` win. See [Slide templates]({{docs}}slide-templates/) for the fields.
 
+## How the agent writes the report
+
+Before it plans slides, the agent writes the purpose in one or two sentences: what the report is for, who reads it and what they should know or do afterwards. Every slide has to serve that sentence. It also guesses the first question each group in the room will ask and makes sure a slide answers it, without inventing the answer.
+
+The `dashboard` summary is written last, once the other slides are settled, so it matches what the deck says. After the build the agent rereads the deck as the person who knows least: unclear sentences, claims it could not say to the reader's face, numbers that do not trace to a draft, and conclusions mixed up with recommendations. Because the author misses their own slips, it offers to send the deck to the lead or another reader for a proofread before it goes wider.
+
 ## Check the language and structure
 
 ```bash
 node ~/.claude/skills/showship/scripts/lint_report.js report.json --audience business
 ```
 
-`lint_report.js` validates `report.json` against `report.schema.json`: wrong or missing fields, bad values, text longer than its slot, and typos with a "did you mean" hint. It also checks the language. The deck is shown to business people, PMs and the CTO in one meeting, so slide text has to be understandable without engineering background. It flags developer jargon and suggests plain wording.
+`lint_report.js` validates `report.json` against `report.schema.json`: wrong or missing fields, bad values, text longer than its slot, and typos with a "did you mean" hint. It also checks the language. The deck is shown to business people, PMs and the CTO in one meeting, so slide text has to be understandable without engineering background. It flags developer jargon and suggests plain wording. It also warns about wordy phrases, passive sentences that do not say who did what, sentences over 25 words and abbreviations that are never spelled out.
 
 - **FIX** findings must be rewritten. The exit code is 1 while any remain.
 - **CHECK** findings are warnings. They are fine if the term is explained in the same sentence or is an official plan name.
