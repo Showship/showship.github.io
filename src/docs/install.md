@@ -22,7 +22,7 @@ Use the up and down arrows to choose, Enter to confirm, and the left arrow or Es
 | Who will read the report? | Business (plain language) or Engineering (technical terms are fine) |
 | How often do you report? | Weekly (default), Biweekly, Sprint (length set by `sprintDays`, default 14), Monthly, or Custom |
 | Which task tool does your team use? | None, Lark, Jira Cloud, Linear, Asana, ClickUp, or Custom (MCP) |
-| Which deck design do you want? | Classic, Modern, Corporate, Vivid, Showship, Paper or Ember. See [Deck designs]({{docs}}deck-styles/) |
+| Which deck design do you want? | Classic, Modern, Corporate, Vivid, Showship, Paper, Ember or Summit. See [Deck designs]({{docs}}deck-styles/) |
 
 Then it copies the skill, records your choices in `config.json` (keeping anything already there), installs the deck builder's dependencies, checks for `git`, `gh` and LibreOffice, and prints the setup steps for the tracker you picked.
 
@@ -52,7 +52,7 @@ npx showship --yes --period sprint --tasks jira --style corporate
 | `--period <p>` | `weekly`, `biweekly`, `sprint`, `monthly`, `custom` |
 | `--tasks <tool>` | Task tracker: `none`, `lark`, `jira`, `linear`, `asana`, `clickup`, `mcp` |
 | `--mcp-server <name>` | With `--tasks mcp`: the MCP server to read tasks from. Also `--mcp-name`, `--mcp-lists "A, B"` and `--mcp-instructions "..."` |
-| `--style <name>` | Deck design: `showship`, `paper`, `ember`, `classic`, `modern`, `corporate`, `vivid` |
+| `--style <name>` | Deck design: `showship`, `paper`, `ember`, `summit`, `classic`, `modern`, `corporate`, `vivid` |
 | `--role <role>` | `lead` (whole team) or `member` (your own work) |
 | `--audience <a>` | `business` (plain language) or `engineering` |
 | `--dir <path>` | Install into a custom skill folder |

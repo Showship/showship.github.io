@@ -1,14 +1,14 @@
 ---
 title: Deck designs
-description: The seven deck designs, their fonts, and how to set a design, brand colours and the Shipped with Showship mark.
+description: The eight deck designs, their fonts, and how to set a design, brand colours and the Shipped with Showship mark.
 seoTitle: Deck designs, fonts and brand colours
 ---
 
-Seven designs, chosen to read well in a business meeting. Every slide type works in every design, from the same `report.json`. To compare them side by side, see the [designs gallery]({{root}}designs/).
+Eight designs, chosen to read well in a business meeting. Every slide type works in every design, from the same `report.json`. To compare them side by side, see the [designs gallery]({{root}}designs/).
 
 Set the design once in `config.json` (`"style": "vivid"`), in the installer (`--style vivid`), or for a single report with `"style"` in that report's `report.json`. `theme` colours still override the design's palette, so you can keep a layout and use your brand colours.
 
-## The seven designs
+## The eight designs
 
 ### Showship
 
@@ -37,6 +37,16 @@ Every slide type has its own composition: a hero panel with one giant figure on 
 ![Ember design preview]({{root}}assets/img/style-ember.webp)
 
 [Preview of all Ember slides]({{root}}assets/img/ember-grid.webp) or [download the example deck]({{root}}assets/downloads/example-deck-ember.pptx).
+
+### Summit
+
+The executive brief, for a team lead reporting to the CEO or the boss. It is set for a reader who wants the numbers first and has a few minutes to decide. Ink and white with one teal accent for the focal figure, and brick red kept for risks only.
+
+The dashboard is a scoreboard: one panel, one figure per project, and the key update as a "bottom line" strip. The `attention` slide puts decisions before blockers and gives them the wider column. The next-steps table marks status with a word instead of a coloured cell. Every slide carries "page of total", so the boss can say "go back to slide 4". Slide types without a Summit layout, such as timelines, phase bars and task details, use the shared card layouts in the Summit look.
+
+![Summit design preview]({{root}}assets/img/style-summit.webp)
+
+[Preview of all Summit slides]({{root}}assets/img/summit-grid.webp) or [download the example deck]({{root}}assets/downloads/example-deck-summit.pptx).
 
 ### Classic
 
@@ -72,6 +82,7 @@ PowerPoint substitutes a font if it is not installed, so install the ones your d
 | --- | --- | --- |
 | Showship, Paper | Poppins | Arial |
 | Ember, Classic, Vivid | Georgia | Arial |
+| Summit | Cambria | Arial |
 | Modern | Cambria | Calibri |
 | Corporate | Arial | Arial |
 

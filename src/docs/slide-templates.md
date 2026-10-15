@@ -18,7 +18,7 @@ A full working example lives in `examples/report.example.json` in the repository
   "period": "sprint",                         // optional: weekly | biweekly | sprint | monthly | custom
   "sprint": 14,                               // optional: sprint number, gives "Sprint 14 Progress Report"
   "title": "Weekly Development\nProgress Report", // optional: overrides the period's default title
-  "style": "corporate",                       // optional: showship | paper | ember | classic | modern | corporate | vivid
+  "style": "corporate",                       // optional: showship | paper | ember | summit | classic | modern | corporate | vivid
   "slides": [ /* content slides, in order; title and closing slides are added automatically */ ]
 }
 ```
@@ -31,7 +31,7 @@ Every content slide has `type`, `eyebrow` (a short label, shown in sentence case
 
 ### How designs render the same JSON
 
-`classic` renders it with its own editorial layouts (for example `rings` as large figures, `phase_bars` as phase lists, `timeline` vertically). `showship` has its own signature layouts (colour per project, gauges, pill tracks, a milestone trail). `paper` has its own printed-report layouts (ruled lists, big figures, a single trail line for timelines; `rows` ignores `illustration`). `ember` has its own dark-panel layouts (a hero panel with one giant figure, vertical pillars for `rings`, a zigzag trail for timelines, banded rows; `rows` ignores `illustration`). `modern`, `corporate` and `vivid` share the card layouts.
+`classic` renders it with its own editorial layouts (for example `rings` as large figures, `phase_bars` as phase lists, `timeline` vertically). `showship` has its own signature layouts (colour per project, gauges, pill tracks, a milestone trail). `paper` has its own printed-report layouts (ruled lists, big figures, a single trail line for timelines; `rows` ignores `illustration`). `ember` has its own dark-panel layouts (a hero panel with one giant figure, vertical pillars for `rings`, a zigzag trail for timelines, banded rows; `rows` ignores `illustration`). `summit` (the executive brief for reports to the CEO) has its own layouts for `dashboard` (a scoreboard row with the key update as a bottom-line strip), `attention` (decisions first, in the wider column) and `table` (status as a marker plus a word), and uses the shared card layouts for the other types. `modern`, `corporate` and `vivid` share the card layouts.
 
 ### Length limits
 

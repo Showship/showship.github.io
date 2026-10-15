@@ -49,7 +49,7 @@ The installer asks these questions. You can change the answers in `config.json` 
 - **Understands your reviews.** Comments from the lead's GitHub account are tagged `(LEAD)` and treated as the most authoritative source. See [Code reviews]({{docs}}code-reviews/).
 - **Plain language by default, technical when you want it.** A built-in jargon check flags terms like endpoint, schema, payload, JSON, 500 error and N+1, and suggests business wording before the deck is built. It also warns about wordy phrases, passive sentences with no actor, long sentences and unexplained abbreviations.
 - **Never invents numbers.** Percentages, owners, dates and blockers come from your data or from you. The agent asks one consolidated question for anything GitHub cannot tell it.
-- **13 slide templates and 7 deck designs.** See [Slide templates]({{docs}}slide-templates/) and [Deck designs]({{docs}}deck-styles/).
+- **13 slide templates and 8 deck designs.** See [Slide templates]({{docs}}slide-templates/) and [Deck designs]({{docs}}deck-styles/).
 - **Checks its own layout.** After the build, the deck is rendered and every slide is checked for text crossing the margins or colliding. See [Build and check]({{docs}}build-and-check/).
 - **Your branding.** Company name, logo (borders trimmed automatically) and colour overrides from one config file.
 - **Works across changing repos.** Collect per repo, build once. The set of repos can change every period.
