@@ -18,7 +18,7 @@ seoTitle: config.json reference
   "presenter": "Maya Lin @Maya",    // title slide
   "closingPresenter": "Maya Lin",   // closing slide
   "logo": "~/Pictures/acme-logo.png", // SVG/PNG/JPG; borders trimmed automatically; false = none
-  "style": "corporate",             // showship | paper | ember | summit | classic | modern | corporate | vivid
+  "style": "corporate",             // showship | paper | ember | summit | grove | classic | modern | corporate | vivid
   "updateCheck": true,              // true = tell me once per session when a newer Showship exists
   "theme": {
     "dark": "141412",

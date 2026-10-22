@@ -1,14 +1,14 @@
 ---
 title: Deck designs
-description: The eight deck designs, their fonts, and how to set a design, brand colours and the Shipped with Showship mark.
+description: The nine deck designs, their fonts, and how to set a design, brand colours and the Shipped with Showship mark.
 seoTitle: Deck designs, fonts and brand colours
 ---
 
-Eight designs, chosen to read well in a business meeting. Every slide type works in every design, from the same `report.json`. To compare them side by side, see the [designs gallery]({{root}}designs/).
+Nine designs, chosen to read well in a business meeting. Every slide type works in every design, from the same `report.json`. To compare them side by side, see the [designs gallery]({{root}}designs/).
 
 Set the design once in `config.json` (`"style": "vivid"`), in the installer (`--style vivid`), or for a single report with `"style"` in that report's `report.json`. `theme` colours still override the design's palette, so you can keep a layout and use your brand colours.
 
-## The eight designs
+## The nine designs
 
 ### Showship
 
@@ -48,6 +48,16 @@ The dashboard is a scoreboard: one panel, one figure per project, and the key up
 
 [Preview of all Summit slides]({{root}}assets/img/summit-grid.webp) or [download the example deck]({{root}}assets/downloads/example-deck-summit.pptx).
 
+### Grove
+
+A progress update that reads like a product walkthrough. Forest-green title and closing slides, soft paper content slides, one leaf-green accent for eyebrows and figures, and brick red kept for risks only.
+
+Cards are rounded and white with a hairline border and no shadow. The eyebrow is a small tracked label above a bold title, and the footer carries the source line and the page number. The dashboard gives each project a rounded card with a large green figure and puts the key update on a forest-green strip. Slide types without a Grove layout use the shared card layouts, which pick up the rounded look.
+
+![Grove design preview]({{root}}assets/img/style-grove.webp)
+
+[Preview of all Grove slides]({{root}}assets/img/grove-grid.webp) or [download the example deck]({{root}}assets/downloads/example-deck-grove.pptx).
+
 ### Classic
 
 Black and white editorial with its own layouts: no boxes, a lede column for the key message, large serif figures, numbered entries, a vertical timeline, phase lists instead of bar charts, heavy and hairline rules, and one deep green accent.
@@ -80,7 +90,7 @@ PowerPoint substitutes a font if it is not installed, so install the ones your d
 
 | Design | Heading font | Body font |
 | --- | --- | --- |
-| Showship, Paper | Poppins | Arial |
+| Showship, Paper, Grove | Poppins | Arial |
 | Ember, Classic, Vivid | Georgia | Arial |
 | Summit | Cambria | Arial |
 | Modern | Cambria | Calibri |
