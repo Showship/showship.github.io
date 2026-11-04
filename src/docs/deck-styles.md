@@ -52,7 +52,7 @@ The dashboard is a scoreboard: one panel, one figure per project, and the key up
 
 A progress update that reads like a product walkthrough. Forest-green title and closing slides, soft paper content slides, one leaf-green accent for eyebrows and figures, and brick red kept for risks only.
 
-Cards are rounded and white with a hairline border and no shadow. The eyebrow is a small tracked label above a bold title, and the footer carries the source line and the page number. The dashboard gives each project a rounded card with a large green figure and puts the key update on a forest-green strip. Slide types without a Grove layout use the shared card layouts, which pick up the rounded look.
+Cards are rounded and white with a hairline border and no shadow. The eyebrow is a small tracked label above a bold title, and the footer carries the source line and the page number. The dashboard gives each project a rounded card with a large green figure and puts the key update on a forest-green strip. Add an optional `icon` (a Lucide name) to a dashboard card or a timeline step and Grove draws it, while the other designs ignore it. Blockers and decisions carry a warning or question icon. Slide types without a Grove layout use the shared card layouts, which pick up the rounded look.
 
 ![Grove design preview]({{root}}assets/img/style-grove.webp)
 
